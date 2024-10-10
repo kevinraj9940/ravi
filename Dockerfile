@@ -10,11 +10,11 @@ WORKDIR /var/www/html
 # Install neccesaary PHP extentions
 RUN apt-get update && apt-get install-y\
   libicu-dev\
-libzip-dev\
-&& docker-php-ext-install\
-intl\
-zip\
-&& a2enmod rewrite
+  libzip-dev\
+  && docker-php-ext-install\
+  intl\
+  zip\
+  && a2enmod rewrite
 
 # EXPOSE PORT 80
 EXPOSE 80

@@ -1,13 +1,13 @@
-# Use the official PHP image as the base image
+#Use the official PHP image as the base image
 FROM php:7.4-apache
 
-# Copy the application files to the container
+#Copy the application files to the container
 COPY ./var/www/html
 
-# Set the working directory in the container
+#Set the working directory in the container
 WORKDIR /var/www/html
 
-# Install neccesaary PHP extentions
+#Install neccesaary PHP extentions
 RUN apt-get update && apt-get install-y\
   libicu-dev\
   libzip-dev\
@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install-y\
   zip\
   && a2enmod rewrite
 
-# EXPOSE PORT 80
+#Expose port 80
 EXPOSE 80
 
-# Define the entry point for the container
+#Define the entry point for the container
 CMD["apache2-foreground"]
